@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		D49C71ED1B1F797300C60A57 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49C71EC1B1F797300C60A57 /* main.swift */; };
+		D49C71FD1B1F7BAB00C60A57 /* DecksetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49C71F51B1F7B3D00C60A57 /* DecksetApp.swift */; };
+		D49C71FE1B1F7BAB00C60A57 /* DecksetDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49C71F61B1F7B3D00C60A57 /* DecksetDocument.swift */; };
+		D49C71FF1B1F7BAB00C60A57 /* DecksetSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49C71F71B1F7B3D00C60A57 /* DecksetSlide.swift */; };
+		D49C72001B1F7BAB00C60A57 /* DecksetWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49C71F81B1F7B3D00C60A57 /* DecksetWindow.swift */; };
+		D49C72021B1F7D0B00C60A57 /* DecksetDocument+PDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49C72011B1F7D0B00C60A57 /* DecksetDocument+PDF.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +30,13 @@
 /* Begin PBXFileReference section */
 		D49C71E91B1F797300C60A57 /* DecksetExport */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DecksetExport; sourceTree = BUILT_PRODUCTS_DIR; };
 		D49C71EC1B1F797300C60A57 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		D49C71F41B1F7B3D00C60A57 /* Deckset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Deckset.h; sourceTree = "<group>"; };
+		D49C71F51B1F7B3D00C60A57 /* DecksetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecksetApp.swift; sourceTree = "<group>"; };
+		D49C71F61B1F7B3D00C60A57 /* DecksetDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecksetDocument.swift; sourceTree = "<group>"; };
+		D49C71F71B1F7B3D00C60A57 /* DecksetSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecksetSlide.swift; sourceTree = "<group>"; };
+		D49C71F81B1F7B3D00C60A57 /* DecksetWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecksetWindow.swift; sourceTree = "<group>"; };
+		D49C71F91B1F7B7600C60A57 /* DecksetExport-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DecksetExport-Bridging-Header.h"; sourceTree = "<group>"; };
+		D49C72011B1F7D0B00C60A57 /* DecksetDocument+PDF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DecksetDocument+PDF.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +69,24 @@
 		D49C71EB1B1F797300C60A57 /* DecksetExport */ = {
 			isa = PBXGroup;
 			children = (
+				D49C71F31B1F7B3D00C60A57 /* Deckset */,
 				D49C71EC1B1F797300C60A57 /* main.swift */,
+				D49C72011B1F7D0B00C60A57 /* DecksetDocument+PDF.swift */,
+				D49C71F91B1F7B7600C60A57 /* DecksetExport-Bridging-Header.h */,
 			);
 			path = DecksetExport;
+			sourceTree = "<group>";
+		};
+		D49C71F31B1F7B3D00C60A57 /* Deckset */ = {
+			isa = PBXGroup;
+			children = (
+				D49C71F41B1F7B3D00C60A57 /* Deckset.h */,
+				D49C71F51B1F7B3D00C60A57 /* DecksetApp.swift */,
+				D49C71F61B1F7B3D00C60A57 /* DecksetDocument.swift */,
+				D49C71F71B1F7B3D00C60A57 /* DecksetSlide.swift */,
+				D49C71F81B1F7B3D00C60A57 /* DecksetWindow.swift */,
+			);
+			path = Deckset;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,7 +145,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D49C71FE1B1F7BAB00C60A57 /* DecksetDocument.swift in Sources */,
+				D49C72001B1F7BAB00C60A57 /* DecksetWindow.swift in Sources */,
+				D49C71FF1B1F7BAB00C60A57 /* DecksetSlide.swift in Sources */,
 				D49C71ED1B1F797300C60A57 /* main.swift in Sources */,
+				D49C71FD1B1F7BAB00C60A57 /* DecksetApp.swift in Sources */,
+				D49C72021B1F7D0B00C60A57 /* DecksetDocument+PDF.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,14 +238,19 @@
 		D49C71F11B1F797300C60A57 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DecksetExport/DecksetExport-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		D49C71F21B1F797300C60A57 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DecksetExport/DecksetExport-Bridging-Header.h";
 			};
 			name = Release;
 		};

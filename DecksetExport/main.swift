@@ -1,12 +1,36 @@
-//
-//  main.swift
-//  DecksetExport
-//
-//  Created by Marcelo Fabri on 03/06/15.
-//  Copyright (c) 2015 Marcelo Fabri. All rights reserved.
-//
+#!/usr/bin/env xcrun -sdk macosx swift
 
 import Foundation
 
-println("Hello, World!")
+func shell(args: String...) -> Int32 {
+    let task = NSTask()
+    task.launchPath = "/usr/bin/env"
+    task.arguments = args
+    task.launch()
+    task.waitUntilExit()
+    return task.terminationStatus
+}
 
+let arguments = Process.arguments
+
+if count(arguments) == 3 {
+    let source = NSURL(fileURLWithPath: arguments[1])!
+    let destination = NSURL(fileURLWithPath: arguments[2])!
+    
+    shell("open", source.path!, "-a", "Deckset")
+
+    if let app = DecksetApp(), document = app.documents.filter({ $0.file.path == source.path }).first {
+        if document.exportToPDF(destination) {
+            println("Finished saving PDF to \(destination.path!)")
+        } else {
+            fputs("Unable to save PDF to \(destination.path!)", stderr)
+            exit(EXIT_FAILURE)
+        }
+    } else {
+        fputs("Unknown error", stderr)
+        exit(EXIT_FAILURE)
+    }
+} else {
+    fputs("Usage: ./DecksetExport [source] [destination]", stderr)
+    exit(EXIT_FAILURE)
+}
