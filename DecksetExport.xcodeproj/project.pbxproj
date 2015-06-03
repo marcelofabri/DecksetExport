@@ -13,19 +13,9 @@
 		D49C71FF1B1F7BAB00C60A57 /* DecksetSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49C71F71B1F7B3D00C60A57 /* DecksetSlide.swift */; };
 		D49C72001B1F7BAB00C60A57 /* DecksetWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49C71F81B1F7B3D00C60A57 /* DecksetWindow.swift */; };
 		D49C72021B1F7D0B00C60A57 /* DecksetDocument+PDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49C72011B1F7D0B00C60A57 /* DecksetDocument+PDF.swift */; };
+		D49C72151B1F9AAA00C60A57 /* Deckset.h in Headers */ = {isa = PBXBuildFile; fileRef = D49C71F41B1F7B3D00C60A57 /* Deckset.h */; };
+		D49C72171B1F9C9D00C60A57 /* DecksetExport-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = D49C71F91B1F7B7600C60A57 /* DecksetExport-Bridging-Header.h */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		D49C71E71B1F797300C60A57 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D49C71E91B1F797300C60A57 /* DecksetExport */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DecksetExport; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +81,18 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		D49C72141B1F9A9D00C60A57 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D49C72151B1F9AAA00C60A57 /* Deckset.h in Headers */,
+				D49C72171B1F9C9D00C60A57 /* DecksetExport-Bridging-Header.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		D49C71E81B1F797300C60A57 /* DecksetExport */ = {
 			isa = PBXNativeTarget;
@@ -98,7 +100,8 @@
 			buildPhases = (
 				D49C71E51B1F797300C60A57 /* Sources */,
 				D49C71E61B1F797300C60A57 /* Frameworks */,
-				D49C71E71B1F797300C60A57 /* CopyFiles */,
+				D49C72131B1F97DF00C60A57 /* ShellScript */,
+				D49C72141B1F9A9D00C60A57 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -139,6 +142,22 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D49C72131B1F97DF00C60A57 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D49C71E51B1F797300C60A57 /* Sources */ = {
@@ -239,6 +258,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				DSTROOT = .;
+				INSTALL_PATH = /bin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "DecksetExport/DecksetExport-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -249,6 +270,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				DSTROOT = .;
+				INSTALL_PATH = /bin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "DecksetExport/DecksetExport-Bridging-Header.h";
 			};

@@ -1,5 +1,3 @@
-#!/usr/bin/env xcrun -sdk macosx swift
-
 import Foundation
 
 func shell(args: String...) -> Int32 {
@@ -23,14 +21,14 @@ if count(arguments) == 3 {
         if document.exportToPDF(destination) {
             println("Finished saving PDF to \(destination.path!)")
         } else {
-            fputs("Unable to save PDF to \(destination.path!)", stderr)
+            fputs("Unable to save PDF to \(destination.path!)\n", stderr)
             exit(EXIT_FAILURE)
         }
     } else {
-        fputs("Unknown error", stderr)
+        fputs("Unknown error]\n", stderr)
         exit(EXIT_FAILURE)
     }
 } else {
-    fputs("Usage: ./DecksetExport [source] [destination]", stderr)
+    fputs("Usage: ./DecksetExport [source] [destination]\n", stderr)
     exit(EXIT_FAILURE)
 }
